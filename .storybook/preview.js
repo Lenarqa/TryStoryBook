@@ -1,3 +1,6 @@
+import { Box, ChakraBaseProvider, theme } from "@chakra-ui/react";
+import "@storybook/addon-console";
+
 /** @type { import('@storybook/react').Preview } */
 const preview = {
   parameters: {
@@ -9,5 +12,15 @@ const preview = {
     },
   },
 };
+
+export const decorators = [
+  (Story) => (
+    <ChakraBaseProvider theme={theme}>
+      <Box m={4}>
+        <Story />
+      </Box>
+    </ChakraBaseProvider>
+  ),
+];
 
 export default preview;
